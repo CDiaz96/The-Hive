@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <title>The Hive</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="hive">
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Hive Fan Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+    </div>
+
+    <div id="hive"class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <!-- <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div> -->
+  <div class="col-sm-6">
+    <h3 class="old">Messages</h3>
+
+     <ul class="messages">
+      <% for(var i=0;i <messages.length; i++) {%>
+
+        <li class="message">
+          <span><%= messages[i].name %></span>
+
+          <span><%= messages[i].msg %></span>
+
+          <p><%= messages[i].topic %></p>
+
+          <span><%= messages[i].heart %></span>
+
+          <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+
+          <span><i class="fa fa-meh-o" aria-hidden="true"></i></span>
+
+          <span><i class="fa fa-fire" aria-hidden="true"></i></span>
+
+          <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+
+      <% if( messages[i].reaction === 'fire'){ %>
+
+        <img class="reaction" src="img/fire.gif" alt="">
+
+        <% } else if( messages[i].reaction === 'blah'){ %>
+
+        <img class="reaction" src="img/blah.gif" alt="">
+      <% } %>
+     </li>
+    <% } %>
+  </ul>
+
+    <h2 class="new">New Message</h2>
+        <% if (user.local.email) { %>
+
+     <form class="hold" action="/messages" method="POST">
+
+        <input class="email" type="text" value="<%= user.local.email %>" name="name" placeholder="name">
+
+        <input type="text" placeholder="title" name="msg">
+
+        <textarea id="message" cols="30" rows="5" type="text" placeholder="message" name="topic"></textarea>
+
+        <button class="submit" type="submit">Submit</button>
+
+      </form>
+     </div>
+    <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

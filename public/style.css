@@ -1,0 +1,87 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  color:black;
+  background-color: black;
+}
+#hive{
+  background-image: url("https://thumbs.gfycat.com/UnripeThoseDuck-max-1mb.gif");
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+h1{
+  font-family: cursive;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 60px;
+}
+p{
+  text-align: center;
+}
+.email{
+  display: none;
+}
+.btn{
+  color: white;
+  background-color: black;
+}
+.message{
+  width: 100%;
+  margin-left: 70%;
+  font-size: 16px;
+}
+.reaction{
+  width: 30%;
+}
+#message{
+  margin-bottom: 5%;
+  width: 100%;
+}
+#bee{
+  margin-right: 3%;
+  margin-bottom: 2%;
+  width: 60%;
+}
+.hold{
+  width: 50%;
+ margin-left: 80%;
+}
+.jumbotron{
+  font-family: cursive;
+  font-weight: bold;
+  background-color: pink;
+}
+.container{
+  background-color: pink;
+}
+.bottom{
+  background-color: lightgrey;
+  width:50%;
+  margin-left: 25%;
+}
+.submit{
+  margin-bottom: 5%;
+  margin-left: 5%;
+  background-color: black;
+  color: white;
+}
+.fa-heart{
+  color:red;
+}
+.fa-meh-o{
+  color:rgb(255,222,50);
+}
+.fa-fire{
+  color:rgb(253,78,30);
+}
+.fa-trash{
+  color:white;
+}
+.old, .new{
+  width: 100%;
+  margin-left: 90%;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 30px;
+}
