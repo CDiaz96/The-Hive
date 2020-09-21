@@ -1,3 +1,8 @@
+
+Beyonce Fullstack
+
+![The Hive](public/img/hive.png)
+
 ## Installation
 
 1. Clone repo
