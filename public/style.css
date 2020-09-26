@@ -85,3 +85,14 @@ p{
   font-weight: bold;
   font-size: 30px;
 }
+.imgUp{
+  width: 200px;
+  height: 200px;
+}
+#msg{
+  width: 30%;
+  margin-left: 5%;
+  font-size: 16px;
+  float: left;
+  padding-bottom: 5%;
+}

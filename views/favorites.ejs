@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>The Hive</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+<div class="container">
+
+  <nav>
+    <div class="container">
+
+      <h1>Favorites</h1>
+
+      <div class="page-header text-center">
+
+          <nav>
+
+            <a href="/profile" class="btn btn-default btn-sm">Home</a>
+            <a href="/favorites" class="btn btn-default btn-sm">Favorites</a>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+          </nav>
+
+      </div>
+  </nav>
+
+  <ul  class="messages">
+
+   <% for(var i=0;i <messages.length; i++)     {%>
+
+       <% if(( messages[i].save == 'true')&&( messages[i].name == user.local.email)){ %>
+
+     <li  id="msg"class="message">
+
+       <span><%= messages[i].name %></span>
+
+       <span><%= messages[i].msg %></span>
+
+       <p><%= messages[i].topic %></p>
+
+
+       <img class="imgUp" src=<%= "" + messages[i].src %> >
+
+       <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+
+  </li>
+ <% } %>
+ <% } %>
+</ul>
+
+
+
+
+<script src="main.js"></script>
+
+</body>
+</html>

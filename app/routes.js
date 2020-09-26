@@ -29,6 +29,21 @@ module.exports = function(app, passport, db) {
           })
         })
     });
+    app.get('/favorites', isLoggedIn, function(req, res) {
+      // console.log(req)
+        db.collection('favorites').find().toArray((err, result) => {
+          if (err) return console.log(err)
+          // const resultFiltered = result.filter(function(result) {
+          //       if(req.user.local.email == result.user){
+          //         return true
+          //       }
+          //   })
+          res.render('favorites.ejs', {
+            user : req.user,
+            messages: result
+          })
+        })
+    });
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -39,14 +54,14 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/messages', (req, res) => {
-      db.collection('messages').save({name: req.body.name, msg: req.body.msg, heart:0, topic: req.body.topic, },(err, result) => {
+      db.collection('messages').save({name: req.body.name, msg: req.body.msg, heart:0, topic: req.body.topic, src:req.body.src, save:""},(err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
       })
     })
 
-    app.put('/messages', (req, res) => {
+    app.put('/hearts', (req, res) => {
       console.log(req.body.heart)
       db.collection('messages')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
@@ -62,6 +77,22 @@ module.exports = function(app, passport, db) {
         res.send(result)
       })
     })
+    app.post('/favorites', (req, res) => {
+      db.collection('favorites')
+      .save({ save:req.body.save,name: req.user.local.email, msg:req.body.msg, topic:req.body.topic, heart:req.body.heart, src: req.body.src}, (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.redirect('/favorites')
+      })
+    })
+    // app.put('/favorites', (req, res) => {
+    //   db.collection('favorites')
+    //   .findOneAndUpdate({ save:req.body.save,name: req.user.local.email, msg:req.body.msg, topic:req.body.topic, heart:req.body.heart, src: req.body.src}, (err, result) => {
+    //     if (err) return console.log(err)
+    //     console.log('saved to database')
+    //     res.redirect('/favorites')
+    //   })
+    // })
 
     app.put('/blah', (req, res) => {
       db.collection('messages')

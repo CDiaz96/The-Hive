@@ -11,13 +11,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="hive">
+
+
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1>Hive Fan Page</h1>
+  <div class="page-header text-center">
+      <h1>Hive Fan Page</h1>
+
+      <nav>
+
+        <a href="/profile" class="btn btn-default btn-sm">Home</a>
+        <a href="/favorites" class="btn btn-default btn-sm">Favorites</a>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
 
-    </div>
+      </nav>
+
+  </div>
+
+
 
     <div id="hive"class="row">
 
@@ -55,6 +66,8 @@
 
           <span><%= messages[i].heart %></span>
 
+         <img id="img" class="imgUp" src=<%= "" + messages[i].src %> >
+
           <span><i class="fa fa-heart" aria-hidden="true"></i></span>
 
           <span><i class="fa fa-meh-o" aria-hidden="true"></i></span>
@@ -62,6 +75,8 @@
           <span><i class="fa fa-fire" aria-hidden="true"></i></span>
 
           <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+
+          <span><button class="save" type="button" name="button"> Save</button></span>
 
       <% if( messages[i].reaction === 'fire'){ %>
 
@@ -84,13 +99,15 @@
 
         <input type="text" placeholder="title" name="msg">
 
+        <input  type="text" name="src" value="">
+
         <textarea id="message" cols="30" rows="5" type="text" placeholder="message" name="topic"></textarea>
 
         <button class="submit" type="submit">Submit</button>
 
       </form>
-     </div>
-    <% } %>
+  </div>
+  <% } %>
 
 </div>
 
